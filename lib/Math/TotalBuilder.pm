@@ -1,6 +1,8 @@
+use strict;
+
 package Math::TotalBuilder;
 
-our $VERSION = '1.10';
+our $VERSION = '1.101';
 
 =head1 NAME
 
@@ -8,9 +10,9 @@ Math::TotalBuilder -- build a whole total out of valued pieces
 
 =head1 VERSION
 
-version 1.10
+version 1.101
 
- $Id: TotalBuilder.pm,v 1.6 2004/08/23 14:48:07 rjbs Exp $ 
+ $Id$ 
 
 =head1 SYNOPSIS
 
@@ -38,7 +40,6 @@ similar calculations.
 
 =cut
 
-use strict;
 use Carp;
 
 use base qw(Exporter);

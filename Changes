@@ -1,3 +1,6 @@
+1.101 2006-11-06
+  - improve packages, etc; perl-critic added
+
 1.10  2004-08-23 10:50
   - updated documentation
   - 100% coverage

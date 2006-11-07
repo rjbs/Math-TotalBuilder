@@ -1,3 +1,5 @@
+use strict;
+
 package Math::TotalBuilder::Common;
 
 our $VERSION = sprintf "%d.%03d", q$Revision: 1.2 $ =~ /(\d+)/g;
@@ -24,8 +26,6 @@ This package is just a set of common sets of units for use with the code in
 Math::TotalBuilder.
 
 =cut
-
-use strict;
 
 =head1 Unit Sets
 
