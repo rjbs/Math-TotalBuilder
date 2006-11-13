@@ -1,4 +1,5 @@
 use strict;
+use warnings;
 
 package Math::TotalBuilder;
 
@@ -40,10 +41,10 @@ similar calculations.
 
 =cut
 
-use Carp;
+use Carp ();
 
 use base qw(Exporter);
-our @EXPORT = qw(build total);
+our @EXPORT = qw(build total); ## no critic Export
 
 =head1 FUNCTIONS
 
@@ -94,7 +95,7 @@ sub build {
 	} elsif (ref $_[2] eq 'CODE') { 
 		return $_[2]->($_[0], $_[1]);
 	} else {
-		croak "bad third parameter to build";
+		Carp::croak "bad third parameter to build";
 	}
 }
 
@@ -137,10 +138,10 @@ to the definition in %pieces.
 =cut
 
 sub total {
-	my ($pieces, $set) = @_;
+	my ($pieces, $set) = @_; ## no critic Ambiguous
 	my $total;
 	for (keys %$set) {
-		die "invalid unit type: $_" unless exists $pieces->{$_};
+		Carp::croak "invalid unit type: $_" unless exists $pieces->{$_};
 		$total += $set->{$_} * $pieces->{$_};
 	}
 	$total;

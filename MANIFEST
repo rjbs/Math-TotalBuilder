@@ -12,6 +12,5 @@ t/builders.t               alternate builder tests
 t/pod.t                    POD tests
 t/pod-coverage.t           POD tests
 
-META.yml                   Module meta-data (added by MakeMaker)
 t/perl-critic.t
 LICENSE
