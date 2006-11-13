@@ -1,0 +1,16 @@
+MANIFEST                   This list of files
+README
+Changes                    change log
+Makefile.PL                MakeMaker makefile
+
+lib/Math/TotalBuilder.pm          the module itself
+lib/Math/TotalBuilder/Common.pm   common units
+
+t/00.load.t                load tests
+t/basics.t                 basic tests
+t/builders.t               alternate builder tests
+t/pod.t                    POD tests
+t/pod-coverage.t           POD tests
+
+t/perl-critic.t
+LICENSE
