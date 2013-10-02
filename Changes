@@ -1,6 +1,8 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
+
+1.102     2013-10-02 08:47:30 America/New_York
         - update bugtracker, repo data
         - not actually any more useful
 
