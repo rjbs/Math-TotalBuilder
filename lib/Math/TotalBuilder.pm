@@ -1,19 +1,9 @@
 use strict;
 use warnings;
-
 package Math::TotalBuilder;
+# ABSTRACT: build a whole total out of valued pieces
 
-our $VERSION = '1.101';
-
-=head1 NAME
-
-Math::TotalBuilder -- build a whole total out of valued pieces
-
-=head1 VERSION
-
-version 1.101
-
- $Id$ 
+# aka, solve the bin packing problem lol
 
 =head1 SYNOPSIS
 
@@ -43,7 +33,7 @@ similar calculations.
 
 use Carp ();
 
-use base qw(Exporter);
+use Exporter 5.57 'import';
 our @EXPORT = qw(build total); ## no critic Export
 
 =head1 FUNCTIONS
@@ -69,7 +59,7 @@ to provide a solution for solveable instances, like this:
  my $difficult = build (
    { kroener => 30, talen => 7 },
    49
- ); 
+ );
  # yields { kroener => 1, talen => 2, _remainder => 5 }
  # not    { talen => 7 }
 
@@ -87,12 +77,12 @@ is assumed.
 
 sub build {
 	$_[2] ||= \&build_basic;
-	if (ref $_[2] eq 'ARRAY') { 
+	if (ref $_[2] eq 'ARRAY') {
 		%{(
 			sort { $a->{_remainder} <=> $b->{_remainder} }
 			map  { { $_->($_[0], $_[1]) } } @{$_[2]}
 		)[0]};
-	} elsif (ref $_[2] eq 'CODE') { 
+	} elsif (ref $_[2] eq 'CODE') {
 		return $_[2]->($_[0], $_[1]);
 	} else {
 		Carp::croak "bad third parameter to build";
@@ -107,7 +97,7 @@ has tried to fit all the units in.
 
 =cut
 
-sub build_basic { 
+sub build_basic {
 	my ($pieces, $total) = @_;
 
 	return unless $total;
@@ -169,12 +159,12 @@ Use subrefs for ever-extending pieces.  (I<e.g.>, "powers of two")
 Allow building a total from a given set of source units.  ("I have this many
 units to try and build into this total.  Can I?")
 
-=item * 
+=item *
 
 Allow for useful handling of pieces-sets with multiple pieces of the same
 value: always use one, randomly distribute, etc.
 
-=item * 
+=item *
 
 Allow use of bigfloats so that the smallest value need not be the base value.
 
@@ -183,15 +173,6 @@ Allow use of bigfloats so that the smallest value need not be the base value.
 Provide an option to try harder to build totals.
 
 =back
-
-=head1 AUTHOR
-
-Ricardo SIGNES, E<lt>rjbs@cpan.orgE<gt>
-
-=head1 COPYRIGHT
-
-Copyright (C) 2004, Ricardo SIGNES.  This is free software, and can be
-distributed under the same terms as perl itself.
 
 =cut
 

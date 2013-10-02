@@ -1,21 +1,7 @@
 use strict;
 use warnings;
-
 package Math::TotalBuilder::Common;
-
-=head1 NAME
-
-Math::TotalBuilder::Common -- common unit sets for building totals
-
-=head1 VERSION
-
-version 1.101
-
- $Id$
-
-=cut
-
-our $VERSION = '1.101';
+# ABSTRACT: common unit sets for building totals
 
 =head1 SYNOPSIS
 
@@ -68,16 +54,5 @@ our $time = { ## no critic PackageVar
   minute  =>      60,
   second  =>       1
 };
-
-=head1 AUTHOR
-
-Ricardo SIGNES, E<lt>rjbs@cpan.orgE<gt>
-
-=head1 COPYRIGHT
-
-This is free software, and can be distributed under the same terms as perl
-itself.
-
-=cut
 
 "Here's your change.";
